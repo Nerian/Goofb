@@ -1,4 +1,11 @@
 Goofb::Application.routes.draw do
+  get "export/get_file"
+
+  get "session/create"
+  get "home/index"
+  get "session/new"
+  root :to => "home#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

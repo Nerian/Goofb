@@ -16,10 +16,9 @@ require 'webrat'
 require 'webrat/core/matchers'
 
 Webrat.configure do |config|
-  config.mode = :rails
+  config.mode = :rack
   config.open_error_files = false # Set to true if you want error pages to pop up in the browser
-end
-
+end       
 
 # If you set this to false, any error raised from within your app will bubble 
 # up to your step definition and out to cucumber unless you catch it somewhere

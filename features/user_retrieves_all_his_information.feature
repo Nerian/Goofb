@@ -5,10 +5,10 @@ Feature: User retrieves all his information
   And store it locally on my computer.
 
 Scenario: User retrieves his name
-  Given the "demo-user-1" Facebook account exists
+  Given the Federico Facebook account exists
   And I have given permission to Goof to access all my information 
   When I retrieve all information
-  Then I should see "Name: Federico"
+  Then the exported file should contain the attribute "name" with value "Federico"
   
 
 
