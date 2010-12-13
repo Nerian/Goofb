@@ -1,1 +1,2 @@
 engine=rails3
+skipdb=true
