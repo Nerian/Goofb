@@ -111,7 +111,6 @@ GEM
       ffi (~> 0.6.3)
       json_pure
       rubyzip
-    sqlite3-ruby (1.3.2)
     steak (1.0.0)
       rspec
     thor (0.14.6)
@@ -129,5 +128,4 @@ DEPENDENCIES
   facebook_oauth
   rails
   rspec-rails (>= 2.0.0)
-  sqlite3-ruby
   steak
