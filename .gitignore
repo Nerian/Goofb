@@ -5,3 +5,5 @@ tmp/**/*
 .svn
 tmp
 webrat.log
+config/database.yml
+db/schema.rb
