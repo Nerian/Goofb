@@ -15,8 +15,8 @@ class SessionController < ApplicationController
         :callback => 'http://localhost:3000/session/create'
     )                 
     access_token = client.authorize(:code => params["code"]) 
-    session["code"] = params["code"]    
-    @user = client.me.info
-    render "home/index"
+    session["token"] = params["code"]    
+    @user = client.me.info.to_yaml
+    redirect_to home_show_path
   end      
 end

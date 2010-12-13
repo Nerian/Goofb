@@ -3,6 +3,7 @@ Goofb::Application.routes.draw do
 
   get "session/create"
   get "home/index"
+  get "home/show"
   get "session/new"
   root :to => "home#index"
 

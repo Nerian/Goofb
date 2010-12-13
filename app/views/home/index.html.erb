@@ -1,7 +1,7 @@
 
 <%= link_to "connect to facebook", session_new_path %>  
 
-<% if not session["token"].nil? %>
-	<%= link_to "Get file", export_get_file_path%>
+<% if session["token"] %>
+	<%= @user%>
 <% end %>
 
