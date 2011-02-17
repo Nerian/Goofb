@@ -5,8 +5,11 @@ class ExportController < ApplicationController
   
   def create
     #send_data generate_tgz("#{RAILS_ROOT}/tmp/myfile_#{Process.pid}"), :filename => 'Facebook-export.tgz'
-    generate_profile_file('Example2')
     
+    client = facebook_client                 
+    access_token = client.authorize(:code => session["token"]) 
+    @user = client.me.info                       
+    generate_profile_file(JSON.pretty_generate(@user))    
     send_file "#{RAILS_ROOT}/tmp/profile.txt#{Process.pid}", :filename => 'Facebook-export.txt'    
   end
 end
