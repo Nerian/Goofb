@@ -3,9 +3,7 @@ class ExportController < ApplicationController
   def new    
   end
   
-  def create
-    #send_data generate_tgz("#{RAILS_ROOT}/tmp/myfile_#{Process.pid}"), :filename => 'Facebook-export.tgz'
-    
+  def create    
     client = get_client 
     @user = client.me.info                       
     
@@ -14,6 +12,6 @@ class ExportController < ApplicationController
     generate_wall_file
     generate_friend_list_file
     
-    send_file "#{RAILS_ROOT}/tmp/profile.txt#{Process.pid}", :filename => 'Facebook-export.txt'    
+    send_file generate_tgz("#{RAILS_ROOT}/tmp/profile.txt#{Process.pid}"), :filename => 'Facebook-export.tgz'    
   end
 end

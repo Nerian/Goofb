@@ -30,4 +30,9 @@ class ApplicationController < ActionController::Base
   def generate_friend_list_file
     
   end
+  
+  def generate_tgz(file)
+    content = File.read(file)
+    ActiveSupport::Gzip.compress(content)
+  end
 end
