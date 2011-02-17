@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   end
   
   def generate_profile_file(content)
-    File.open("#{RAILS_ROOT}/tmp/profile.txt#{Process.pid}", 'w') {|f| f.write(content) }    
+    File.open("#{RAILS_ROOT}/tmp/export#{Process.pid}/profile.txt", 'w') {|f| f.write(content) }    
+    File.open("#{RAILS_ROOT}/tmp/export#{Process.pid}/profile2.txt", 'w') {|f| f.write(content) }    
   end          
   
   def get_client
