@@ -1,6 +1,9 @@
 class ExportController < ApplicationController
-  def get_file
-    render :nothing
+  
+  def new    
   end
-
+  
+  def create
+    
+  end
 end

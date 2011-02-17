@@ -1,0 +1,9 @@
+<%= form_tag(export_create, :method=>"post") do %>	
+	<%= check_box_tag(:album) %>
+	<%= label_tag(:album, "Album")%>
+	<%= check_box_tag(:album) %>
+	<%= label_tag(:muro, "muro")%>
+	<%= check_box_tag(:muro) %>
+	<%= label_tag(:friends, "friends")%>
+	<%= submit_tag("Export") %>
+<%= end %>
