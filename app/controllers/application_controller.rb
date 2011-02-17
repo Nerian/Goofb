@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
   end
   
   def generate_profile_file(content)
-    File.open("#{RAILS_ROOT}/tmp/export#{Process.pid}/profile.txt", 'w+') {|f| f.write(content) }    
-    File.open("#{RAILS_ROOT}/tmp/export#{Process.pid}/profile2.txt", 'w+') {|f| f.write(content) }    
+    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(content) }    
+    File.open("#{RAILS_ROOT}/tmp/export/profile2.txt", 'w') {|f| f.write(content) }    
   end          
   
   def get_client
@@ -33,8 +33,8 @@ class ApplicationController < ActionController::Base
   end
   
   def generate_tgz(file)
-    System("tar -vzf #{RAILS_ROOT}/tmp/export#{Process.pid}-result #{RAILS_ROOT}/tmp/export#{Process.pid}")
-    #content = File.read(file)
-    #ActiveSupport::Gzip.compress(content)    
+    System("tar -vzf #{RAILS_ROOT}/tmp/export-result #{RAILS_ROOT}/tmp/export")
+    content = File.read("#{RAILS_ROOT}/tmp/export-result")
+    ActiveSupport::Gzip.compress(content)    
   end
 end
