@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
   
   def generate_profile_file(content)
-    Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless Dir.exists?("#{RAILS_ROOT}/tmp/export")
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
     File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(content) }    
     File.open("#{RAILS_ROOT}/tmp/export/profile2.txt", 'w') {|f| f.write(content) }    
   end          
