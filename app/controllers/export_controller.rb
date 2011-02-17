@@ -12,6 +12,6 @@ class ExportController < ApplicationController
     generate_wall_file
     generate_friend_list_file
     
-    send_data generate_tgz("#{RAILS_ROOT}/tmp/export#{Process.pid}"), :filename => 'Facebook-export.tgz'    
+    send_data generate_tgz("#{RAILS_ROOT}/tmp/export#{Process.pid}"), :filename => 'Facebook-export.zip'    
   end
 end
