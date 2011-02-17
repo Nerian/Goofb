@@ -18,4 +18,16 @@ class ApplicationController < ActionController::Base
     access_token = client.authorize(:code => session["token"])
     client    
   end
+  
+  def generate_album_file
+    
+  end                    
+  
+  def generate_wall_file
+    
+  end                   
+  
+  def generate_friend_list_file
+    
+  end
 end
