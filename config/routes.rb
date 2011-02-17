@@ -1,6 +1,6 @@
 Goofb::Application.routes.draw do
   
-  get "export/create"
+  post "export/create"
   get "export/new"
   
   get "session/create"

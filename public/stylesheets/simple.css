@@ -1,0 +1,116 @@
+@font-face {
+    font-family: MavenPro;
+    src: url('/fonts/mavenpro.otf');
+    font-weight:400;	
+} 
+
+@font-face {
+    font-family: VeraMono;
+    src: url('/fonts/VeraMono.ttf');
+    font-weight:400;
+}
+
+body{
+    margin: 0px auto;
+    background-color: #333333;
+}   
+
+#header a{
+    text-decoration: none;
+	padding-left:30px;
+    color: white;
+}    
+
+#content a{    
+    color: black;
+}
+
+#header{
+    margin: 40px auto;
+    margin-bottom: 10px;
+    color: white;
+    width: 100%;
+}
+
+#header #subhead1{
+    float:left;
+    padding-left: 15px;
+}  
+
+#header #subhead2{
+    float: right;
+}
+
+#header .blog{
+    color: cadetblue;
+}
+
+#header .dot{
+    color: antiquewhite;
+}
+
+#header .name{
+    color: silver
+}
+
+#header ul{
+    margin: 0px 0px;
+    list-style-type: none;
+    text-align: right;
+}
+#header li{
+    display:inline;
+    padding: 7px;
+}
+
+#content{
+	margin-top:100px;
+    text-align:left;
+    padding:15px;
+    background-color: azure;
+    border:1px solid white;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -border-radius: 15px;	
+	font-family: 'MavenPro', arial, sans-serif;
+	font-size: 17px;
+	line-height: 26px;
+
+    -webkit-box-shadow: 0 0 10px rgb(0,0,0);
+    -moz-box-shadow: 0 0 10px rgb(0,0,0);
+} 
+	  
+#content h2{
+	font-size:150%;
+}
+
+#content p{
+	text-indent: 1.5em;	
+}
+
+#content p.not_indented{
+	text-indent: 0
+}        
+   
+.image{
+    text-align: center;    
+}
+
+.image img{
+    margin: 25px 0px;
+    -webkit-box-shadow: 0 0 10px rgb(0,0,0);
+    -moz-box-shadow: 0 0 10px rgb(0,0,0);
+}
+
+.sub{
+    text-align: center
+}
+
+#wrapper{
+    width: 650px;
+    margin:0px auto;    
+}
+
+#footer{
+    color: white;
+}
