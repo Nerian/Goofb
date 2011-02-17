@@ -9,6 +9,6 @@ class SessionController < ApplicationController
     access_token = client.authorize(:code => params["code"]) 
     session["token"] = params["code"]    
     @user = client.me.info.to_yaml
-    redirect_to home_show_path
+    redirect_to export_new_path
   end      
 end
