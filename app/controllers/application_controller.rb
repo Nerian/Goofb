@@ -33,7 +33,6 @@ class ApplicationController < ActionController::Base
   
   def generate_tgz(file)
     content = File.read(file)
-    puts content
     ActiveSupport::Gzip.compress(content)    
   end
 end
