@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
   end
   
   def generate_tgz(file)
-    system("tar -cvzf #{RAILS_ROOT}/tmp/export-result #{RAILS_ROOT}/tmp/export")
+    system("tar -cf #{RAILS_ROOT}/tmp/export-result #{RAILS_ROOT}/tmp/export")
     content = File.read("#{RAILS_ROOT}/tmp/export-result")
     ActiveSupport::Gzip.compress(content)    
   end
