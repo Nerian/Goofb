@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
         :callback => 'http://young-lightning-861.heroku.com/session/create'
     )    
   end
+  
+  def generate_profile_file(content)
+    File.open("#{RAILS_ROOT}/tmp/profile.txt#{Process.pid}", 'w') {|f| f.write(content) }    
+  end
 end
