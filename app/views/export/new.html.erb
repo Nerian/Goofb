@@ -1,5 +1,7 @@
-<% flash.each do |key, msg| %>
-    <%= content_tag :div, msg, :class => [key, "_message"], :id => "notice_ #{key}" %>
+<% if flash[:notice] -%>
+	<div class='notice'>	
+		<%= flash[:notice]%>
+	</div>                  
 <% end %>
 
 <%= form_tag(export_create_path, :method=>"post") do %>	
