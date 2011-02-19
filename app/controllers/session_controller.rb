@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
   def new      
     client = facebook_client                                                      
-    redirect_to client.authorize_url(:scope=> 'user_photos,user_about_me')
+    redirect_to client.authorize_url(:scope=> 'user_photos,user_about_me,read_stream')
   end
   
   def create
