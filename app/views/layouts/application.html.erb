@@ -18,19 +18,21 @@
 </head>
 <body>
     <div id='wrapper'>
-		<div id='header'>
-			<ul>                    
-				<li>
-					Follow these steps >>
-				</li>
-				<li>
-					<button><%= link_to '1. Connect to Facebook', home_index_path %></button>					
-				</li>                                                                        
-				<li>
-					<button><%= link_to '2. Select the resources that you want to export', export_new_path %></button>
-				</li>									
-			</ul>
-			   
+		<div id='header'>         
+				<ul>                    
+					<li>
+				  		Steps{ 
+					</li>
+					<li>
+						<button><%= link_to '1. Connect to Facebook', home_index_path %></button>					
+					</li>                                                                        
+					<li>
+						<button><%= link_to '2. Select the resources that you want to export', export_new_path %></button>
+					</li>	  
+					<li>
+						}
+					</li>  							
+				</ul>              		   
 		</div>
 		<div id='content'>
 			<%= yield %>      
