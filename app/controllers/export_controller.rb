@@ -7,7 +7,7 @@ class ExportController < ApplicationController
     client = get_client 
     @user = client.me.info                       
     
-    if params[:profile] or params[:album] or params[:wall] or params[:friends] do    
+    if params[:profile] or params[:album] or params[:wall] or params[:friends] then    
       generate_profile_file(JSON.pretty_generate(@user)) if params[:profile]    
       generate_album_file if params[:album]
       generate_wall_file if params[:wall]
