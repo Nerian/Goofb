@@ -11,8 +11,7 @@ class ApplicationController < ActionController::Base
   
   def generate_profile_file(content)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(content) }    
-    File.open("#{RAILS_ROOT}/tmp/export/profile2.txt", 'w') {|f| f.write(content) }    
+    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(content) }        
   end          
   
   def get_client
@@ -33,9 +32,9 @@ class ApplicationController < ActionController::Base
     
   end
   
-  def generate_tgz(file)
+  def generate_tgz
     system("tar -czf #{RAILS_ROOT}/tmp/export-result #{RAILS_ROOT}/tmp/export")
-    content = File.read("#{RAILS_ROOT}/tmp/export-result")
-    #ActiveSupport::Gzip.compress(content)    
+    system("tar cfz export.tgz --directory=#{RAILS_ROOT}/tmp export/")
+    content = File.read("#{RAILS_ROOT}/tmp/export.tgz")   
   end
 end
