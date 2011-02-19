@@ -22,10 +22,8 @@ class ApplicationController < ActionController::Base
   
   def generate_album_file(client)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
-    
-    puts client.me.albums
-    
-    #File.open("#{RAILS_ROOT}/tmp/export/album/album.txt", 'w') {|f| f.write(content) }    
+            
+    File.open("#{RAILS_ROOT}/tmp/export/album/album.txt", 'w') {|f| f.write(client.me.albums) }    
   end                    
   
   def generate_wall_file
