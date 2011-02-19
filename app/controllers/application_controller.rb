@@ -28,7 +28,8 @@ class ApplicationController < ActionController::Base
   end                    
   
   def generate_wall_file(client)
-    
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
+    File.open("#{RAILS_ROOT}/tmp/export/wall.txt", 'w') {|f| f.write(JSON.pretty_generate(client.me.feed)) }        
   end                   
   
   def generate_friend_list_file(client)
