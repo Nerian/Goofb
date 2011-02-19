@@ -70,29 +70,7 @@ body{
 	  
 #content h2{
 	font-size:150%;
-}
-
-#content p{
-	text-indent: 1.5em;	
-}
-
-#content p.not_indented{
-	text-indent: 0
 }        
-   
-.image{
-    text-align: center;    
-}
-
-.image img{
-    margin: 25px 0px;
-    -webkit-box-shadow: 0 0 10px rgb(0,0,0);
-    -moz-box-shadow: 0 0 10px rgb(0,0,0);
-}
-
-.sub{
-    text-align: center
-}
 
 #wrapper{
     width: 650px;
@@ -101,4 +79,8 @@ body{
 
 #footer{
     color: white;
+}
+
+.notice_message{
+	border-style: groove;
 }
