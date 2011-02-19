@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
   end
   
   def generate_tgz
-    system("tar -cfz #{RAILS_ROOT}/tmp/export.tgz --directory=#{RAILS_ROOT}/tmp export/")
+    system("tar -czf #{RAILS_ROOT}/tmp/export.tgz --directory=#{RAILS_ROOT}/tmp export/")
     content = File.read("#{RAILS_ROOT}/tmp/export.tgz")   
   end
 end
