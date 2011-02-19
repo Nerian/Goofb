@@ -20,27 +20,6 @@ body{
     width: 100%;
 }
 
-#header #subhead1{
-    float:left;
-    padding-left: 15px;
-}  
-
-#header #subhead2{
-    float: right;
-}
-
-#header .blog{
-    color: cadetblue;
-}
-
-#header .dot{
-    color: antiquewhite;
-}
-
-#header .name{
-    color: silver
-}
-
 #header ul{
     margin: 0px 0px;
     list-style-type: none;
@@ -83,4 +62,13 @@ body{
 
 .notice{
 	border-style: groove;
+}
+
+button{
+	background-color: #333333;
+	-webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -border-radius: 15px;
+	-webkit-box-shadow: 0 0 10px rgb(0,0,0);
+    -moz-box-shadow: 0 0 10px rgb(0,0,0);	
 }
