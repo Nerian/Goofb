@@ -12,11 +12,9 @@ class ExportController < ApplicationController
       generate_album_file if params[:album]
       generate_wall_file if params[:wall]
       generate_friend_list_file if params[:friends]                              
+      send_data generate_tgz("#{RAILS_ROOT}/tmp/export#{Process.pid}"), :filename => 'Facebook-export.tgz'    
     else
       render :new, :notice => "You need to select at least one option" 
-    end
-    
-    
-    send_data generate_tgz("#{RAILS_ROOT}/tmp/export#{Process.pid}"), :filename => 'Facebook-export.tgz'    
+    end            
   end
 end
