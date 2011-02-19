@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     File.open("#{RAILS_ROOT}/tmp/export/album/album.txt", 'w') {|f| f.write(JSON.pretty_generate(client.me.albums)) }    
   end                    
   
-  def generate_wall_file
+  def generate_wall_file(client)
     
   end                   
   
