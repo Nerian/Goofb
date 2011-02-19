@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     
     puts client.me.albums
     
-    File.open("#{RAILS_ROOT}/tmp/export/album/album.txt", 'w') {|f| f.write(content) }    
+    #File.open("#{RAILS_ROOT}/tmp/export/album/album.txt", 'w') {|f| f.write(content) }    
   end                    
   
   def generate_wall_file
