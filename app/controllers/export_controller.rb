@@ -13,8 +13,9 @@ class ExportController < ApplicationController
       generate_wall_file if params[:wall]
       generate_friend_list_file if params[:friends]                              
       send_data generate_tgz("#{RAILS_ROOT}/tmp/export#{Process.pid}"), :filename => 'Facebook-export.tgz'    
-    else
-      render :new, :notice => "You need to select at least one option" 
+    else              
+      flash[:notice] = "You need to provide at least one option"
+      redirect_to :new
     end            
   end
 end
