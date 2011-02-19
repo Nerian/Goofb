@@ -4,11 +4,9 @@ class ExportController < ApplicationController
   end
   
   def create    
-    client = get_client 
-    @user = client.me.info                       
-    
+    client = get_client                    
     if params[:profile] or params[:album] or params[:wall] or params[:friends] then    
-      generate_profile_file(JSON.pretty_generate(@user)) if params[:profile]    
+      generate_profile_file(client) if params[:profile]    
       generate_album_file(client) if params[:album]
       generate_wall_file(client) if params[:wall]
       generate_friend_list_file(client) if params[:friends]                              

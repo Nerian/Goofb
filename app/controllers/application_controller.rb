@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
     client    
   end         
   
-  def generate_profile_file(content)
+  def generate_profile_file(client)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(content) }        
+    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(JSON.pretty_generate(client.me.info)) }        
   end
   
   def generate_album_file(client)
