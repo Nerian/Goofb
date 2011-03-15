@@ -23,6 +23,13 @@ class ApplicationController < ActionController::Base
   def generate_album_file(client)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
     Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
+    
+    client.me.albums['data'].each do |album|
+        client.me.albums(album['id']).photos['data'].each do |photo|
+            source = client.me.photos(photo['id']).source # not sure if you need to do source['data']
+            File.open("#{RAILS_ROOT}/tmp/export/album/1.txt", 'w') {|f| source }
+        end
+    end
             
     File.open("#{RAILS_ROOT}/tmp/export/album/album.txt", 'w') {|f| f.write(JSON.pretty_generate(client.me.albums)) }    
   end                    
