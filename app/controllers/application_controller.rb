@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
     Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
     
     client.me.albums['data'].each do |album|
-        client.me.albums(album['id'])['images'].each do |photo|
+        puts client.me.albums(album['id'])
+        client.me.albums(album['id'])['photos'].each do |photo|
             puts photo
             source = client.me.photos(photo['id']).source # not sure if you need to do source['data']
             file = open(source)
