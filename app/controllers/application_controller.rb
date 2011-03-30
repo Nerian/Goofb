@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   
   def generate_album_file(client)
     client.me.albums['data'].each do |album|
-        client.me.albums(album['id']).photos['data'].each do |photo|
+        client.me.albums(album['id']).photos.each do |photo|
             source = client.me.photos(photo['id']).source # not sure if you need to do source['data']
             puts source
         end
