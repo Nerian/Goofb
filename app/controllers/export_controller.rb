@@ -7,7 +7,7 @@ class ExportController < ApplicationController
     client = get_client                    
     if params[:profile] or params[:album] or params[:wall] or params[:friends] then    
       generate_profile_file(client) if params[:profile]    
-      generate_album_file(client) if params[:album]
+      #generate_album_file(client) if params[:album]
       generate_wall_file(client) if params[:wall]
       generate_friend_list_file(client) if params[:friends]                              
       send_data generate_tgz, :filename => 'Facebook-export.tgz'    
