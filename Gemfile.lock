@@ -133,7 +133,7 @@ DEPENDENCIES
   capybara
   facebook_oauth
   jquery-rails
-  koala (>= 1.0.0.beta)
+  koala (>= 1.0.0.rc)
   rails
   rspec-rails (>= 2.0.0)
   steak
