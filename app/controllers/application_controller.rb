@@ -30,8 +30,13 @@ class ApplicationController < ActionController::Base
       Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums/#{album_name}")
       photos = graph.get_connections(album['id'], 'photos')
       photos.each do |photo|      
-        puts photo.inspect
-        photo_name = photo['name'].downcase.tr(' ', '_')
+        #puts photo.inspect                              
+        photo_name
+        if photo['name'].nil?
+          photo_name = 'no_name'
+        else          
+          photo_name = photo['name'].downcase.tr(' ', '_') 
+        end
         File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}", 'w'){ |f| f.write(photo['source'])}
       end
     end                     
