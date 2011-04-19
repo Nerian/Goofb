@@ -21,17 +21,17 @@ class ApplicationController < ActionController::Base
   
   def generate_album_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums")
         
     albums = graph.get_connections('me', 'albums') 
     albums.each do |album|              
       album_name = album['name'].downcase.tr(' ', '_')
       
-      Dir.mkdir("#{RAILS_ROOT}/tmp/export/album/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/album/#{album_name}")
+      Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums/#{album_name}")
       photos = graph.get_connections(album['id'], 'photos')
       photos.each do |photo|
-        #photo_name = photo['name'].downcase.tr(' ', '_')
-        #File.open("#{RAILS_ROOT}/tmp/export/album/#{album_name}/#{photo_name}", 'w'){ |f| f.write(photo['source'])}
+        photo_name = photo['name'].downcase.tr(' ', '_')
+        File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}", 'w'){ |f| f.write(photo['source'])}
       end
     end                     
   end         
