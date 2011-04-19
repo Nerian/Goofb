@@ -35,8 +35,16 @@ class ApplicationController < ActionController::Base
         else          
           photo_name = photo['name'].downcase.tr(' ', '_') 
         end
-        url = URI.parse(photo['source'])
-        File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}.jpg", 'w'){ |f| f.write(Net::HTTP.start(url.host, url.port) {|http| http.get(url.path)}.body)}
+        url = URI.parse(photo['source'])   
+        
+        require 'open-uri'
+        File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}", 'wb') do |dest|
+          open(URI.parse(photo['source'], 'rb') do |src|
+            dest.write(src.read)
+          end
+        end
+        
+        #File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}.jpg", 'w'){ |f| f.write(Net::HTTP.start(url.host, url.port) {|http| http.get(url.path)}.body)}
       end
     end                     
   end         
