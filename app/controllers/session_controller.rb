@@ -5,9 +5,7 @@ class SessionController < ApplicationController
   end
   
   def create
-    @oauth = oauth_client    
-    access_token = @oauth.get_access_token(params["code"]) 
-    session["token"] = params["code"]
+    session[:access_token] = Koala::Facebook::OAuth.new('http://young-lightning-861.heroku.com/session/create').get_access_token(params[:code]) if params[:code]        
     redirect_to export_new_path
   end      
 end
