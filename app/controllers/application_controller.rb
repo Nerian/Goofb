@@ -25,17 +25,13 @@ class ApplicationController < ActionController::Base
         
     albums = graph.get_connections('me', 'albums') 
     albums.each do |album|              
-      album_name = album['name'].downcase.tr(' ', '_')
-      
+      album_name = album['name'].downcase.tr(' ', '_')      
       Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums/#{album_name}")
       photos = graph.get_connections(album['id'], 'photos')
-      puts 'Photo'
-      puts JSON.pretty_generate(photos.inspect)
-      photos.each do |photo|      
-        #puts photo.inspect                              
+      photos.each do |photo|                               
         photo_name = ''
         if photo['name'].nil?
-          photo_name = 'no_name'
+          photo_name = photo['id']
         else          
           photo_name = photo['name'].downcase.tr(' ', '_') 
         end
