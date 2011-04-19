@@ -24,8 +24,13 @@ class ApplicationController < ActionController::Base
     Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
         
     albums = graph.get_connections('me', 'albums') 
-                 
-    File.open("#{RAILS_ROOT}/tmp/export/albums.txt", 'w') {|f| f.write(albums.to_s) }
+    albums.each do |album|              
+      Dir.mkdir("#{RAILS_ROOT}/tmp/export/album/#{album['name']}") unless File.exists?("#{RAILS_ROOT}/tmp/export/album/#{album['name']}")
+      photos = graph.get_connections(album, 'photos')
+      photos.each do |photo|
+        File.open("#{RAILS_ROOT}/tmp/export/album/#{album['name']}/#{photo['name']}", 'w'){ |f| f.write(photo['source'])}
+      end
+    end                     
   end         
     
   #def generate_album_file(client)
