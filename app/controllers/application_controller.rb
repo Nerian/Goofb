@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
       
       Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums/#{album_name}")
       photos = graph.get_connections(album['id'], 'photos')
+      puts photos.inspect
       photos.each do |photo|      
         #puts photo.inspect                              
         photo_name = ''
