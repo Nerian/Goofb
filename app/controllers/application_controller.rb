@@ -9,7 +9,11 @@ class ApplicationController < ActionController::Base
   end
                 
   def get_graph                                            
-    puts "session_token:  #{session['token']}"       
+    puts "session_token:  #{session['token']}"             
+    oauth = Koala::Facebook::OAuth.new(
+    ENV['FACEBOOK_APPLICATION_ID'], 
+    ENV['FACEBOOK_APPLICATION_SECRET'], 
+    'http://young-lightning-861.heroku.com/session/create')
     graph = Koala::Facebook::GraphAPI.new(session["token"])          
   end         
   
