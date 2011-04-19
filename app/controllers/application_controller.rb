@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   end
                 
   def get_graph    
-    graph = Koala::Facebook::GraphAPI.new(session["token"])                 
+    graph = Koala::Facebook::GraphAPI.new(session["token"])
+    puts "session_token:  #{session['token']}"                 
   end         
   
   def generate_profile_file(graph)
