@@ -15,17 +15,19 @@ class ApplicationController < ActionController::Base
   def generate_profile_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
     File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(JSON.pretty_generate(graph.get_object('me'))) }        
-  end
+  end         
   
-  def generate_album_file(client)
-    client.me.albums['data'].each do |album|
-        client.me.albums(album['id']).photos.each do |photo|
-            source = client.me.photos(photo['id']).source # not sure if you need to do source['data']
-            puts source
-        end
-    end
-  end    
   
+  
+  def generate_album_file(graph)
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
+        
+    albums = graph.get_connections('me', 'albums') 
+                 
+    File.open("#{RAILS_ROOT}/tmp/export/albums.txt", 'w') {|f| f.write(JSON.pretty_generate(albums)) }
+  end         
+    
   #def generate_album_file(client)
   #  Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
   #  Dir.mkdir("#{RAILS_ROOT}/tmp/export/album") unless File.exists?("#{RAILS_ROOT}/tmp/export/album")
