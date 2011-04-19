@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
       photos = graph.get_connections(album['id'], 'photos')
       photos.each do |photo|      
         #puts photo.inspect                              
-        photo_name
+        photo_name = ''
         if photo['name'].nil?
           photo_name = 'no_name'
         else          
