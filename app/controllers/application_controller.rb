@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
         
     albums = graph.get_connections('me', 'albums') 
                  
-    File.open("#{RAILS_ROOT}/tmp/export/albums.txt", 'w') {|f| f.write(albums) }
+    File.open("#{RAILS_ROOT}/tmp/export/albums.txt", 'w') {|f| f.write(JSON.pretty_generate(albums.to_s)) }
   end         
     
   #def generate_album_file(client)
