@@ -8,15 +8,13 @@ class ApplicationController < ActionController::Base
     'http://young-lightning-861.heroku.com/session/create')            
   end
                 
-  def get_client
-    client = facebook_client                 
-    access_token = client.authorize(:code => session["token"])
-    client    
+  def get_graph    
+    graph = Koala::Facebook::GraphAPI.new(session["token"])                 
   end         
   
-  def generate_profile_file(client)
+  def generate_profile_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(JSON.pretty_generate(client.me.info)) }        
+    File.open("#{RAILS_ROOT}/tmp/export/profile.txt", 'w') {|f| f.write(JSON.pretty_generate(graph.get_object('me'))) }        
   end
   
   def generate_album_file(client)
