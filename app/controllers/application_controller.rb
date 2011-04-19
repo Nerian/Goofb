@@ -8,9 +8,9 @@ class ApplicationController < ActionController::Base
     'http://young-lightning-861.heroku.com/session/create')            
   end
                 
-  def get_graph    
-    graph = Koala::Facebook::GraphAPI.new(session["token"])
-    puts "session_token:  #{session['token']}"                 
+  def get_graph                                            
+    puts "session_token:  #{session['token']}"       
+    graph = Koala::Facebook::GraphAPI.new(session["token"])          
   end         
   
   def generate_profile_file(graph)
