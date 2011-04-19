@@ -1,12 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  def facebook_client
-    client = FacebookOAuth::Client.new(
-        :application_id => ENV['FACEBOOK_APPLICATION_ID'],
-        :application_secret => ENV['FACEBOOK_APPLICATION_SECRET'],
-        :callback => 'http://young-lightning-861.heroku.com/session/create'
-    )    
+  def oauth_client
+    oauth = Koala::Facebook::OAuth.new(
+    ENV['FACEBOOK_APPLICATION_ID'], 
+    ENV['FACEBOOK_APPLICATION_SECRET'], 
+    'http://young-lightning-861.heroku.com/session/create')            
   end
                 
   def get_client
