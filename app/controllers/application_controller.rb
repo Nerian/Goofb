@@ -25,10 +25,13 @@ class ApplicationController < ActionController::Base
         
     albums = graph.get_connections('me', 'albums') 
     albums.each do |album|              
-      Dir.mkdir("#{RAILS_ROOT}/tmp/export/album/#{album['name']}") unless File.exists?("#{RAILS_ROOT}/tmp/export/album/#{album['name']}")
+      album_name = album['name'].downcase.tr(' ', '_')
+      
+      Dir.mkdir("#{RAILS_ROOT}/tmp/export/album/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/album/#{album_name}")
       photos = graph.get_connections(album['id'], 'photos')
       photos.each do |photo|
-        File.open("#{RAILS_ROOT}/tmp/export/album/#{album['name']}/#{photo['name']}", 'w'){ |f| f.write(photo['source'])}
+        photo_name = photo['name'].downcase.tr(' ', '_')
+        File.open("#{RAILS_ROOT}/tmp/export/album/#{album_name}/#{photo_name}", 'w'){ |f| f.write(photo['source'])}
       end
     end                     
   end         
