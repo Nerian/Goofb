@@ -44,9 +44,9 @@ class ApplicationController < ActionController::Base
     File.open("#{RAILS_ROOT}/tmp/export/wall.txt", 'w') {|f| f.write(JSON.pretty_generate(graph.get_connections('me','feed'))) }        
   end                   
   
-  def generate_friend_list_file(client)
+  def generate_friend_list_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/friends.txt", 'w') {|f| f.write(JSON.pretty_generate(client.me.friends)) }
+    File.open("#{RAILS_ROOT}/tmp/export/friends.txt", 'w') {|f| f.write(JSON.pretty_generate(graph.get_conntections('me','friends'))) }
     
   end
   
