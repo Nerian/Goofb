@@ -1,8 +1,8 @@
 class ExportController < ApplicationController
   
   def new
-        graph = get_graph        
-        @albums = graph.get_connections('me', 'albums')        
+        @graph = get_graph        
+        @albums = @graph.get_connections('me', 'albums')        
   end
   
   def create    
