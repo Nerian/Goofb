@@ -14,8 +14,8 @@
 		<ul>
 			<% @albums.each_with_index do |album, index| %>								
 				<li>
-                	<%= check_box_tag("albums[#{album['id']}]".to_sym) %>
-					<%= label_tag("albums[#{album['id']}]".to_sym)%><br>
+                	<%= check_box_tag("albums[#{album['id']}]") %>
+					<%= label_tag("albums[#{album['id']}]", album['name'])%><br>
 				</li>					                    
 			<% end %>	
 		</ul>		
