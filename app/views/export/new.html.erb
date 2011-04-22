@@ -16,16 +16,16 @@
 				<li>
                 	<%= check_box_tag("albums[#{album['id']}]") %>
 					<% @graph.get_connections(album['id'], 'photos').each do |photo| %>
-						<%= image_tag(photo['icon'])%>
+						<%= image_tag(photo['images'][3]['source']) %>
 					<% end %>					
-					<%= label_tag("albums[#{album['id']}]", album['name'])%>
+					<%= label_tag("albums[#{album['id']}]", album['name']) %>
 				</li>					                    
 			<% end %>	
 		</ul>		
 		<%= check_box_tag(:wall) %>
-		<%= label_tag(:wall, "Wall")%><br>
+		<%= label_tag(:wall, "Wall") %><br>
 		<%= check_box_tag(:friends) %>
-		<%= label_tag(:friends, "Friends")%><br>
+		<%= label_tag(:friends, "Friends") %><br>
 		<%= submit_tag("Export") %>
 	</fieldset>
 <% end %>
