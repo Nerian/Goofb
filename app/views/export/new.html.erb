@@ -10,7 +10,14 @@
 		<%= check_box_tag(:profile) %>
 		<%= label_tag(:profile, "Profile")%><br>
 		<%= check_box_tag(:album) %>
-		<%= label_tag(:album, "Album")%><br>
+		<%= label_tag(:album, "Albums")%><br>
+		<ul>
+			<% @albums.each_with_index do |album, index| %>								
+				<li>
+                	<%= check_box_tag("albums[#{album[id]}]", album[name]) %>
+				</li>					                    
+			<% end %>	
+		</ul>		
 		<%= check_box_tag(:wall) %>
 		<%= label_tag(:wall, "Wall")%><br>
 		<%= check_box_tag(:friends) %>
