@@ -13,12 +13,12 @@
 		<%= label_tag(:album, "Albums")%><br>
 		<ul>
 			<% @albums.each_with_index do |album, index| %>								
-				<li>
-                	<%= check_box_tag("albums[#{album['id']}]") %>
+			<%= check_box_tag("albums[#{album['id']}]") %>
+			<%= label_tag("albums[#{album['id']}]", album['name']) %>
+				<li>                	
 					<% @graph.get_connections(album['id'], 'photos').each do |photo| %>
 						<%= image_tag(photo['images'][3]['source']) %>
-					<% end %>					
-					<%= label_tag("albums[#{album['id']}]", album['name']) %>
+					<% end %>										
 				</li>					                    
 			<% end %>	
 		</ul>		
