@@ -15,7 +15,7 @@
 			<% @albums.each_with_index do |album, index| %>								
 				<li>
                 	<%= check_box_tag("albums[#{album['id']}]") %>
-					<% @graph.get_connections(album['id'], 'photos') do |photo| %>
+					<% @graph.get_connections(album['id'], 'photos').each do |photo| %>
 						<%= image_tag(photo['icon'])%>
 					<% end %>					
 					<%= label_tag("albums[#{album['id']}]", album['name'])%>
