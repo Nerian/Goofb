@@ -40,7 +40,6 @@ class ApplicationController < ActionController::Base
   end                    
   
   def generate_wall_file(graph)
-    puts graph.get_connections('me','feed').inspect
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
     File.open("#{RAILS_ROOT}/tmp/export/wall.txt", 'w') {|f| f.write(graph.get_connections('me','feed')) }        
   end                   
