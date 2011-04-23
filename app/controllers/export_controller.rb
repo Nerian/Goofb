@@ -1,8 +1,13 @@
 class ExportController < ApplicationController
   
-  def new
-        @graph = get_graph        
-        @albums = @graph.get_connections('me', 'albums')        
+  def new     
+    if session[:access_token]
+      @graph = get_graph        
+      @albums = @graph.get_connections('me', 'albums')        
+    else
+      redirect_to 'home#index', :flash => "First click on 'Click here to connect to facebook'"
+    end
+        
   end
   
   def create    
