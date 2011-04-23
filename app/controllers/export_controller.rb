@@ -5,7 +5,7 @@ class ExportController < ApplicationController
       @graph = get_graph        
       @albums = @graph.get_connections('me', 'albums')        
     else
-      redirect_to 'home#index', :flash => "First click on 'Click here to connect to facebook'"
+      redirect_to 'home#index', :notice => "First click on 'Click here to connect to facebook'"
     end
         
   end
