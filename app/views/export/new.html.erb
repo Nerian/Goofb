@@ -28,19 +28,4 @@
 	<%= label_tag(:friends, "Friends") %><br>
 	<%= submit_tag("Export") %>
 </fieldset>
-<% end %>   
-
-<script>
-
-$("input[name='album']").change(function()
-{
-	if( $(this).is(':checked') )
-	{
-		$("input[type='checkbox']","ul").attr('checked',true);
-		} else
-		{
-			$("input[type='checkbox']","ul").attr('checked',false);
-		}
-	});
-
-</script>
+<% end %>
