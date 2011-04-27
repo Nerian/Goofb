@@ -31,9 +31,12 @@
 				</ul>              		   
 		</div>
 		<div id='content'>
-			<div class='center'>
-				<%= flash[:notice] unless flash[:notice].nil? -%>
-			</div>
+			<% if flash[:notice] -%>
+			<div class='notice'>	
+				<%= flash[:notice]%>
+			</div>                  
+			<% end %>
+			
 			<%= yield %>      
 		</div>
 	</div>
