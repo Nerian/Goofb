@@ -37,6 +37,29 @@ class ApplicationController < ActionController::Base
         File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}.jpg", 'w'){ |f| f.write(Net::HTTP.start(url.host, url.port) {|http| http.get(url.path)}.body)}
       end
     end                     
+  end
+  
+  def generate_album(graph, albums)
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
+    Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums")
+    
+    albums.each_pair do |id, ok|
+      if ok 
+        album = graph.get_object(id)
+        album_name = album['name'].downcase.tr(' ', '_')      
+        Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums/#{album_name}")
+        photos = graph.get_connections(album['id'], 'photos')
+        photos.each do |photo|                               
+          photo_name = ''
+          if photo['name'].nil?
+            photo_name = photo['id']
+          else          
+            photo_name = photo['name'].downcase.tr(' ', '_') 
+          end
+          url = URI.parse(photo['source'])           
+          File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}.jpg", 'w'){ |f| f.write(Net::HTTP.start(url.host, url.port) {|http| http.get(url.path)}.body)}
+        end                
+    end        
   end                    
   
   def generate_wall_file(graph)
