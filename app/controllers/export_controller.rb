@@ -17,9 +17,9 @@ class ExportController < ApplicationController
       generate_profile_file(graph) if params[:profile]    
       generate_album(graph, params[:albums]) if params[:albums]
       generate_wall_file(graph) if params[:wall]
-      generate_friend_list_file(graph) if params[:friends]
-      cleanup()                              
+      generate_friend_list_file(graph) if params[:friends]                                    
       send_data generate_tgz, :filename => 'Facebook-export.tgz'    
+      cleanup()
     else              
       redirect_to export_new_path, :notice => "You need to provide at least one option"
     end            
