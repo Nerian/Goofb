@@ -75,4 +75,8 @@ class ApplicationController < ActionController::Base
     system("tar -czf #{RAILS_ROOT}/tmp/export.tgz --directory=#{RAILS_ROOT}/tmp export/")
     content = File.read("#{RAILS_ROOT}/tmp/export.tgz")   
   end
+  
+  def cleanup
+    system("rm -rf #{RAILS_ROOT}/tmp/export")
+  end
 end
