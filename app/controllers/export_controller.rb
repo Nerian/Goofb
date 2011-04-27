@@ -11,7 +11,8 @@ class ExportController < ApplicationController
   end
   
   def create    
-    graph = get_graph                    
+    graph = get_graph                     
+    puts params
     if params[:profile] or params[:album] or params[:wall] or params[:friends] then    
       generate_profile_file(graph) if params[:profile]    
       generate_album(graph, params[:albums]) if params[:album]
