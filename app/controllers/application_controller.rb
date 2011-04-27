@@ -59,6 +59,7 @@ class ApplicationController < ActionController::Base
           url = URI.parse(photo['source'])           
           File.open("#{RAILS_ROOT}/tmp/export/albums/#{album_name}/#{photo_name}.jpg", 'w'){ |f| f.write(Net::HTTP.start(url.host, url.port) {|http| http.get(url.path)}.body)}
         end                
+      end
     end        
   end                    
   
