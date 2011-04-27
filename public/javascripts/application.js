@@ -8,11 +8,11 @@ $(document).ready(function(){
 	    if( $(this).is(':checked') )
 	    {
 	        $("input[type='checkbox']","ul").attr('checked',true);
-			$("input[type='checkbox']","ul").attr('value', true);
+			$("input[type='checkbox']","ul").attr('value', 1);
 	    } else
 	    {
 	        $("input[type='checkbox']","ul").attr('checked',false);
-			$("input[type='checkbox']","ul").attr('value', false);
+			$("input[type='checkbox']","ul").attr('value', 0);
 	    }
 	});
 
@@ -24,12 +24,12 @@ $(document).ready(function(){
 	        if( ! $(this).is(':checked') )
 	        {
 	            $("input[name='album']").attr('checked',false);
-				$("input[name='album']").attr('value', false);
+				$("input[name='album']").attr('value', 0);
 	        }
 	        if( $("input[type='checkbox']","ul").length == $("input[type='checkbox']:checked","ul").length )
 			{
-				$("input[name='album']").attr('checked',true);
-				$("input[name='album']").attr('value', true);
+				$("input[name='album']").attr('checked', true);
+				$("input[name='album']").attr('value', 1);
 			}
 	    });
 	});
