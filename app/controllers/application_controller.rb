@@ -44,7 +44,7 @@ class ApplicationController < ActionController::Base
     Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums")
     
     albums.each_pair do |id, ok|
-      if ok=='1' 
+      if ok == 1 
         album = graph.get_object(id)
         album_name = album['name'].downcase.tr(' ', '_')      
         Dir.mkdir("#{RAILS_ROOT}/tmp/export/albums/#{album_name}") unless File.exists?("#{RAILS_ROOT}/tmp/export/albums/#{album_name}")
