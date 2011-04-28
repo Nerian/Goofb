@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   def oauth_client
     oauth = Koala::Facebook::OAuth.new(
-    ENV['GOOF_FACEBOOK_APPLICATION_ID'], 
+    ENV['GOOF_FACEBOOK_APPLICATION_API_KEY'], 
     ENV['GOOF_FACEBOOK_APPLICATION_SECRET'], 
     "http://#{ENV['GOOF_HOSTING_DOMAIN']}/session/create")            
   end
