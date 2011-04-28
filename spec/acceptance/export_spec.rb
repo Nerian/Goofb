@@ -27,15 +27,13 @@ feature "The user" do
     
     scenario "all albums by selecting just the album checkbox" do      
       page.check('Profile')
-      page.click_button('Export')
+      page.click_button('Export')    
       page.response_headers['Content-Type'].should == "application/octet-stream"
     end
     
     scenario "all albums by selecting each album" do
-      save_and_open_page
       page.check('Profile Pictures')
       page.check('Perfil')
-      page.should have_checked_field?('Albums')
       page.click_button('Export')
       page.response_headers['Content-Type'].should == "application/octet-stream"
     end             
