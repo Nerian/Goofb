@@ -3,15 +3,15 @@ class ApplicationController < ActionController::Base
   
   def oauth_client
     oauth = Koala::Facebook::OAuth.new(
-    ENV['FACEBOOK_APPLICATION_ID'], 
-    ENV['FACEBOOK_APPLICATION_SECRET'], 
-    'http://young-lightning-861.heroku.com/session/create')            
+    ENV['GOOF_FACEBOOK_APPLICATION_ID'], 
+    ENV['GOOF_FACEBOOK_APPLICATION_SECRET'], 
+    "http://#{ENV['GOOF_HOSTING_DOMAIN']}/session/create")            
   end
   
   def facebook_oauth_client
     client = FacebookOAuth::Client.new(
-        :application_id => ENV['FACEBOOK_APPLICATION_ID'],
-        :application_secret => ENV['FACEBOOK_APPLICATION_SECRET'],
+        :application_id => ENV['GOOF_FACEBOOK_APPLICATION_ID'],
+        :application_secret => ENV['GOOF_FACEBOOK_APPLICATION_SECRET'],
         :token => session[:access_token]
     )
   end
