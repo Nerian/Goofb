@@ -11,6 +11,6 @@ group :development, :test do
   gem "steak" 
   gem 'launchy'
   gem "capybara"
-  gem 'akephalos', :git => 'git://github.com/Nerian/akephalos.git'
+  #gem 'akephalos', :git => 'git://github.com/Nerian/akephalos.git'
 end
 
