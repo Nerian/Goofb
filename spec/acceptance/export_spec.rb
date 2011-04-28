@@ -32,10 +32,36 @@ feature "The user" do
     end
     
     scenario "all albums by selecting each album" do
+      within('ul') do
+        page.check('Profile Pictures')
+        page.check('Perfil')
+      end      
+      page.click_button('Export')
+      page.response_headers['Content-Type'].should == "application/octet-stream"
+    end
+    
+    scenario "the first album" do
       page.check('Profile Pictures')
+      page.click_button('Export')
+      page.response_headers['Content-Type'].should == "application/octet-stream"
+    end
+    
+    scenario "the second album" do
       page.check('Perfil')
       page.click_button('Export')
       page.response_headers['Content-Type'].should == "application/octet-stream"
-    end             
+    end                 
+    
+    scenario "the feed" do
+      page.check('Wall')
+      page.click_button('Export')
+      page.response_headers['Content-Type'].should == "application/octet-stream"
+    end                  
+    
+    scenario "the list of friends" do
+      page.check('Friends')
+      page.click_button('Export')
+      page.response_headers['Content-Type'].should == "application/octet-stream"
+    end
   end    
 end
