@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/Nerian/akephalos.git
+  revision: c8d82dc7778e4b2bd7fbca4842e3fc3e7b9117cd
+  specs:
+    akephalos (0.2.5)
+      capybara (~> 0.4.0)
+      jruby-jars
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -43,6 +51,7 @@ GEM
     celerity (0.8.9)
     childprocess (0.1.8)
       ffi (~> 1.0.6)
+    configuration (1.2.0)
     culerity (0.2.15)
     diff-lcs (1.1.2)
     erubis (2.6.6)
@@ -57,11 +66,15 @@ GEM
     jquery-rails (0.2.7)
       rails (~> 3.0)
       thor (~> 0.14.4)
+    jruby-jars (1.6.1)
     json (1.5.1)
     json_pure (1.5.1)
     koala (1.0.0.rc)
       json (~> 1.0)
       multipart-post (~> 1.0)
+    launchy (0.4.0)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -122,10 +135,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  akephalos!
   capybara
   faraday (= 0.5.7)
   jquery-rails
   koala (>= 1.0.0.rc)
+  launchy
   rails
   rspec-rails (>= 2.0.0)
   steak
