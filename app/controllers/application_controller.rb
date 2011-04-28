@@ -71,12 +71,12 @@ class ApplicationController < ActionController::Base
   
   def generate_wall_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/wall.txt", 'w') {|f| f.write(facebook_oauth_client.me.feed) }        
+    File.open("#{RAILS_ROOT}/tmp/export/wall.txt", 'w') {|f| f.write(JSON.pretty_generate(facebook_oauth_client.me.feed)) }        
   end                   
   
   def generate_friend_list_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/friends.txt", 'w') {|f| f.write(JSON.pretty_generate(graph.get_connections('me','friends'))) }
+    File.open("#{RAILS_ROOT}/tmp/export/friends.txt", 'w') {|f| f.write(graph.get_connections('me','friends')) }
   end
   
   def generate_tgz
