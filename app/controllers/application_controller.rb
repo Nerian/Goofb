@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
   
   def generate_friend_list_file(graph)
     Dir.mkdir("#{RAILS_ROOT}/tmp/export") unless File.exists?("#{RAILS_ROOT}/tmp/export")
-    File.open("#{RAILS_ROOT}/tmp/export/friends.txt", 'w') {|f| f.write(graph.get_connections('me','friends')) }
+    File.open("#{RAILS_ROOT}/tmp/export/friends.txt", 'w') {|f| f.write(JSON.pretty_generate(facebook_oauth_client.me.friends)) }
   end
   
   def generate_tgz
