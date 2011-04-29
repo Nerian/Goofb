@@ -7,7 +7,7 @@ require 'rspec/rails'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}   
 
-Capybara.app_host = 'http://young-lightning-861.heroku.com'
+Capybara.app_host = "http://#{ENV['GOOF_HOSTING_DOMAIN']}"
 #Capybara.current_driver = :selenium
 Capybara.current_driver = :akephalos
 Capybara.run_server = false

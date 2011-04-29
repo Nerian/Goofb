@@ -32,10 +32,8 @@ feature "The user" do
     end
     
     scenario "all albums by selecting each album" do
-      within('ul') do
-        page.check('Profile Pictures')
-        page.check('Perfil')
-      end      
+      page.check('Profile Pictures')
+      page.check('Perfil')
       page.click_button('Export')
       page.response_headers['Content-Type'].should == "application/octet-stream"
     end
