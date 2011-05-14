@@ -12,6 +12,8 @@ Toward that end, GOOF offers a free service that enables the user to retrieve th
 
 The user do not need to install anything, he or she just uses a web interface.
 
+Licence
+=======
 
 The MIT License
 
